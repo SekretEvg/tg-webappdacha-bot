@@ -155,4 +155,17 @@ app.post('/signup-tg', async (req, res) => {
   }
 });
 
+app.post('/answer', async (req, res) => {
+  const {answer} = req.body;
+  let message = `<b>Ответ с сайта wanna-date!</b>\n`;
+  message += `<b>Ответ: </b> ${answer.toUpperCase()}\n`;
+
+  try {
+    await bot.sendMessage(chatChannelId, message, {parse_mode: 'HTML'});
+    return res.status(200).json({message: 'Форма успешно отправлена!'});
+  } catch (error) {
+    return res.status(500).json({message: 'Возникла проблема с отправкой данных!'});
+  }
+});
+
 app.listen(PORT, () => `Server started on PORT: ${PORT}`);
