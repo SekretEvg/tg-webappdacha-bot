@@ -15,7 +15,7 @@ const webAppWeatherUrl = "https://willowy-liger-db95b6.netlify.app/";
 const webAppTodoUrl = "https://chimerical-capybara-706fa0.netlify.app/";
 const webAppShoppingUrl = "https://delightful-faun-941e5c.netlify.app/";
 
-const chatChannelId = '-1002112584195';
+const chatChannelId = process.env.CHAT_ID;
 
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
